@@ -1,6 +1,6 @@
 function feature_vector = morphology_extraction(clean_signal,time,p_peak,q_peak,r_peak,s_peak,t_peak)
 feature_vector = zeros(1,12);
-signal_label = blank(size(clean_signal,1);
+signal_label = blanks(size(clean_signal,1));
 signal_label(:) = 'o';
 signal_label(p_peak) = 'p';
 signal_label(q_peak) = 'q';
