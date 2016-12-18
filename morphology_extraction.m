@@ -25,7 +25,7 @@ feature_vector(4) = std(st_interval);
 % Standar deviasi T-T
 tt_interval = zeros(1,size(t_peak,2)-1);
 for i=1:size(tt_interval,2)
-    tt_interval(1,i) = time(t_peak(1,i+1))-time(1,r_peak(i));
+    tt_interval(1,i) = time(t_peak(1,i+1))-time(1,t_peak(i));
 end
 feature_vector(5) = std(tt_interval);
 % Standar deviasi Q-T

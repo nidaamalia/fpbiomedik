@@ -7,17 +7,17 @@ while counter1<=size(signal_label,2)
         while counter2<=size(signal_label,2)
             if signal_label(counter2)==peak1
                 counter1 = counter2;
-                break
+                break;
             elseif signal_label(counter2)==peak2
                 interval(end+1) = time(1,counter1)-time(1,counter2);
                 counter1 = counter2+1;
-                break
+                break;
             else
                 counter2 = counter2+1;
             end
         end
         if counter2<=size(signal_label,2)
-            break
+            break;
         end
     else
             counter1 = counter1+1;

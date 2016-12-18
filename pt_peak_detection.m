@@ -10,7 +10,7 @@ counter = 1;
 i = 1;
 
 while i<=size(peaks,1)
-  if (peaks(i)>q_peak(counter)) && (counter<74)
+  if (peaks(i)>q_peak(counter))                  
       if i>1
           if q_peak(counter)-peaks(i-1)>36
               p_peak(end+1) = peaks(i-1);
@@ -29,7 +29,7 @@ while i<=size(peaks,1)
   else
       i = i+1;
   end
-  if counter>size(peaks,1)
+  if counter>size(q_peak,2)
       break;
   end
 end
@@ -54,7 +54,7 @@ while i<=size(peaks,1)
       else
           i = i+1;
     end
-    if counter>size(peaks,2)
+    if counter>size(s_peak,2)
         break
     end
 end
