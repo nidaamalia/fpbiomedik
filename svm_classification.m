@@ -7,7 +7,7 @@ label(positive_index) = '1';
 label(negative_index) = '0';
 label = cellstr(label.');
 
-n_experiment = 50; %jumlah eksperimen
+n_experiment = 45; %jumlah eksperimen
 experiment_accuracy = zeros(n_experiment, 3); %akurasi seluruh eksperimen
 best_svm_model = []; %model svm terbaik
 best_accuracy = 0; %akurasi terbaik
@@ -28,20 +28,20 @@ for experiment = 1 : n_experiment
     SVMModel_poly = svmtrain(training_data, training_label, 'kernel_function', 'polynomial', 'polyorder', 3, 'method', 'QP', 'boxconstraint', 1);
     %menguji model-model svm
     test_label_linear = svmclassify(SVMModel_linear, normalized_feature_vector);
-    test_label_rbf = svmclassify(SVMModel_rbf, normalized_feature_vector);
+    test_label_rbf = svmclassify(SVMModel_poly, normalized_feature_vector);
     test_label_poly = svmclassify(SVMModel_poly, normalized_feature_vector);
     %perhitungan akurasi
     true_flag_linear = 0;
     true_flag_rbf = 0;
     true_flag_poly = 0;
     for i = 1 : size(normalized_feature_vector, 1)
-        if ismember(test_label_linear(i),label (i))
+        if ismember(test_label_linear(i), label(i))
             true_flag_linear = true_flag_linear+1;
         end
-        if ismember(test_label_rbf(i),label (i))
+        if ismember(test_label_rbf(i), label(i))
             true_flag_rbf = true_flag_rbf+1;
         end
-        if ismember(test_label_poly(i),label (i))
+        if ismember(test_label_poly(i), label(i))
             true_flag_poly = true_flag_poly+1;
         end
     end
@@ -64,4 +64,3 @@ for experiment = 1 : n_experiment
 end
 close(h)
 end
-    

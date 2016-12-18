@@ -1,9 +1,6 @@
 function clean_signal = preprocessing(raw_signal)
-
-% clean noise
+% Penghilangan noise
 denoised_signal = denoise(raw_signal);
-
-% baseremove
+% Penghapusan simpangan garis dasar
 clean_signal = baseremove(denoised_signal);
-
 end
